@@ -32,6 +32,10 @@ class Medicamento(Base):
         return f"<Medicamento(nome='{self.nome}', estoque={self.estoque})>"
 
 
+#Criar banco de dados
+
+Base.metadata.create_all(engine)
+
 
 
 
