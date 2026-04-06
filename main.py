@@ -23,8 +23,8 @@ class Medicamento(Base):
 
     id = Column(Integer, primary_key=True)
     nome = Column(String(100), nullable=False)
-    preco = Column(Integer, primary_key=True)
-    estoque = Column(Integer, primary_key=True)
+    preco = Column(Integer)
+    estoque = Column(Integer)
 
     farmacia_id = Column(Integer, ForeignKey("farmacia.id"), nullable=False)
     farmacia = relationship("Farmacia", back_populates="medicamentos")
@@ -62,15 +62,9 @@ def cadastrar_medicamentos():
         try:
             nome_medicamento = input("Digite o nome do medicamento: ").capitalize()
             medicamento = session.query(Medicamento).filter_by(nome=nome_medicamento).first()
-            if medicamento == None:
-                print(f"Nenhum medicamento encontrado com esse nome: {nome_medicamento}")
-                return
-            else: 
-                preço = input("Digite o preço do medicamento: ").capitalize()
-                estoque = estoque(nome=preço)
-                session.add(medicamento)
-                session.commit()
-                print(f"Medicamento cadastrado com sucesso!")
+            session.add(medicamento)
+            session.commit()
+            print(f"Medicamento cadastrado com sucesso!")
 
         except Exception as erro:
             session.rollback()
