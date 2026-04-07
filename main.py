@@ -73,7 +73,45 @@ def cadastrar_medicamentos():
 cadastrar_medicamentos()
            
 
-#Listar farmacia
+#Listar medicamento
+
+def listar_medicamento():
+    with Session() as session:
+        
+
+
+
+#MENU
+
+def menu():
+    session = Session()
+
+    while True:
+        print("=== FARMACIA ===")
+        print("1 - Cadastrar Fármacia")
+        print("2 - Cadastrar Medicamento")
+        print("3 - Listar medicamento")
+        print("0 - Sair")
+
+
+        atendimento = input("Digite sua escolha")
+
+        if atendimento == "1":
+            cadastrar_farmacia(session)
+
+        elif atendimento == "2":
+            cadastrar_medicamentos(session)
+
+        elif atendimento == "3":
+            listar_medicamento(session)
+
+        elif atendimento == "0":
+            print("Obrigado!")
+
+        else:
+            print("Opção inválida!!\n")
+
+
 
 
 
