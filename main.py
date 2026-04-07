@@ -76,8 +76,11 @@ cadastrar_medicamentos()
 #Listar medicamento
 
 def listar_medicamento():
-    with Session() as session:
-        
+    medicamentos = Session.query(Medicamento).all()
+    print("\nLISTA DE MEDICAMENTOS\n")
+    for med in medicamentos:
+        print(f"ID: {med.id}\n NOME: {med.nome}\n PREÇO: R${med.preco}")
+
 
 
 
