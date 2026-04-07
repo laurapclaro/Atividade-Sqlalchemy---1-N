@@ -40,6 +40,7 @@ Base.metadata.create_all(engine)
 
 #FUNÇÕES
 
+#Cadastrar farmacia
 def cadastrar_farmacia():
     with Session() as session:
         try:
@@ -56,7 +57,7 @@ def cadastrar_farmacia():
 
 cadastrar_farmacia()
 
-
+#cadastrar medicamento
 def cadastrar_medicamentos():
     with Session() as session:
         try:
@@ -72,7 +73,7 @@ def cadastrar_medicamentos():
 cadastrar_medicamentos()
            
 
-
+#Listar farmacia
 
 
 
